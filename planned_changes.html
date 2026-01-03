@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>byteOS – Planned Changes Roadmap</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #0b0f1a;
+      color: #e6e9f0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .stage {
+      background: #12182b;
+      border-radius: 14px;
+      padding: 25px;
+      margin-top: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .stage h2 {
+      margin-top: 0;
+    }
+
+    .meta {
+      color: #9aa3b2;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .canary { background: #ff9800; color: #000; }
+    .dev { background: #4da3ff; color: #000; }
+    .stable { background: #4caf50; color: #000; }
+
+    .canary_menu { color: #000; }
+    .dev_menu { color: #000; }
+    .stable_menu { color: #000; }
+
+    ul {
+      line-height: 1.8;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    a {
+      color: #4da3ff;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #9aa3b2;
+      font-size: 0.9rem;
+    }
+    .layout{display:flex;gap:24px}
+  .sidebar{position:sticky;top:20px;min-width:180px;background:#14141c;padding:16px;border-radius:12px;height:fit-content}
+  .sidebar h3{margin-top:0;font-size:16px}
+  .sidebar a{display:block;margin:6px 0;color:#4fc3f7;font-weight:600}
+    .sidebar a.canary{color:#ffb74d}
+    .sidebar a.dev{color:#64b5f6}
+    .sidebar a.stable{color:#81c784}
+    .current{background:#1b233d;padding:10px;border-radius:10px;margin-bottom:12px;font-size:0.85rem;text-align:center}display:block;margin:6px 0;color:#4fc3f7;font-weight:600}
+  .sidebar a:hover{text-decoration:underline}
+  .content{flex:1}
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="current">Current stage<br><strong>Pre-Alpha</strong></div>
+    <h3>Stages</h3>
+    <a href="#pre-alpha" class="canary_menu">🟠 Pre-Alpha</a>
+    <a href="#alpha" class="canary_menu">🟠 Alpha</a>
+    <a href="#beta" class="dev_menu">🔵 Beta</a>
+    <a href="#rc" class="dev_menu">🔵 RC</a>
+    <a href="#pre-rtm" class="dev_menu">🔵 Pre-RTM</a>
+    <a href="#rtm" class="stable_menu">🟢 RTM</a>
+    <a href="#gc" class="stable_menu">🟢 GC</a>
+  </nav>
+  <main class="content">
+  <div class="container">
+    <h1>byteOS Planned Changes Roadmap</h1>
+
+    <div class="stage">
+      <h2 id="pre-alpha">Pre-Alpha <span class="badge canary">Canary</span></h2>
+      <div class="meta">Expected: Q1 2026 • Versions: 0.0.x • Target: micro:bit v2</div>
+      <div class="meta">Support: No EOL (experimental)</div>
+      <ul>
+        <li>Kernel boot stability improvements</li>
+        <li>Reliable startup sequence on micro:bit v2</li>
+        <li>Button A/B input handling</li>
+        <li>LED matrix rendering optimizations</li>
+        <li>Memory usage reduction</li>
+        <li>Basic crash handling (soft reset)</li>
+      </ul>
+    </div>
+
+    <div class="stage">
+      <h2 id="alpha">Alpha <span class="badge canary">Canary</span></h2>
+      <div class="meta">Expected: Q1 2026 • Versions: 0.1.x</div>
+      <div class="meta">EOL: Q3 2026</div>
+      <ul>
+        <li>Basic app/task system</li>
+        <li>Simple menu-based UI</li>
+        <li>Button combination input</li>
+        <li>Modular system structure</li>
+        <li>Debug logging for developers</li>
+      </ul>
+    </div>
+
+    <div class="stage">
+      <h2 id="beta">Beta <span class="badge dev">Dev</span></h2>
+      <div class="meta">Expected: Q3 2026 • Versions: 0.5.x</div>
+      <div class="meta">EOL: Q2 2027</div>
+      <ul>
+        <li>Feature-complete core system</li>
+        <li>App switching</li>
+        <li>Settings system</li>
+        <li>Performance tuning</li>
+        <li>Bug fixes from Alpha feedback</li>
+        <li>Developer documentation</li>
+      </ul>
+    </div>
+
+    <div class="stage">
+      <h2 id="rc">RC (Release Candidate) <span class="badge dev">Dev</span></h2>
+      <div class="meta">Expected: Q2 2027 • Versions: 0.9.x</div>
+      <div class="meta">EOL: Q3 2028</div>
+      <ul>
+        <li>No new features</li>
+        <li>Bug fixes only</li>
+        <li>Performance polishing</li>
+        <li>Memory leak elimination</li>
+        <li>Final UI adjustments</li>
+      </ul>
+    </div>
+
+    <div class="stage">
+      <h2 id="pre-rtm">Pre-RTM <span class="badge dev">Dev</span></h2>
+      <div class="meta">Expected: Q3 2028</div>
+      <div class="meta">EOL: Q4 2028</div>
+      <ul>
+        <li>Final code cleanup</li>
+        <li>Build reproducibility checks</li>
+        <li>Documentation finalization</li>
+        <li>Release packaging validation</li>
+      </ul>
+    </div>
+
+    <div class="stage">
+      <h2 id="rtm">RTM <span class="badge stable">Stable</span></h2>
+      <div class="meta">Expected: Q4 2028 • Version: 1.0.0</div>
+      <div class="meta">EOL: Q4 2032 (LTS)</div>
+      <ul>
+        <li>First official byteOS release</li>
+        <li>Stable .hex distribution</li>
+        <li>Public documentation</li>
+        <li>Long-term support baseline</li>
+      </ul>
+    </div>
+
+    <div class="stage">
+      <h2 id="gc">GC (General Consumption) <span class="badge stable">Stable</span></h2>
+      <div class="meta">Expected: Q4 2028+</div>
+      <div class="meta">EOL: Rolling</div>
+      <ul>
+        <li>Public availability</li>
+        <li>Bugfix-only updates</li>
+        <li>Security patches</li>
+        <li>No breaking changes</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p><a href="download.html">← Back to downloads</a></p>
+      <p>byteOS Roadmap • Subject to change</p>
+    </footer>
+  </div>
+  </main>
+</div>
+</body>
+</html>

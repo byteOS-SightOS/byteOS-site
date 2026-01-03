@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>byteOS – Lightweight. Fast. Modern.</title>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --panel: #12182b;
+      --accent: #4da3ff;
+      --text: #e6e9f0;
+      --muted: #9aa3b2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #0b0f1a, #06080f);
+      color: var(--text);
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    header span {
+      color: var(--accent);
+    }
+
+    header p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      background: rgba(18, 24, 43, 0.8);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--panel);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .download {
+      text-align: center;
+    }
+
+    .download button {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .download button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(77,163,255,0.6);
+    }
+
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: #05070d;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Fake terminal */
+    .terminal {
+      background: #000;
+      color: #4da3ff;
+      font-family: monospace;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 700px;
+      margin: 40px auto 0;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <h1><span>byte</span>OS</h1>
+    <p>A fast, lightweight operating system built for control and performance.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="about.html">About</a>
+    <a href="download.html">Download</a>
+  </nav>
+
+  <section id="features">
+    <h2>Core Features</h2>
+    <div class="features">
+      <div class="card">
+        <h3>⚡ Lightweight</h3>
+        <p>byteOS is designed to run fast on low-end hardware with minimal overhead.</p>
+      </div>
+      <div class="card">
+        <h3>🔐 Secure</h3>
+        <p>Built with sandboxing and permission-based components for safety.</p>
+      </div>
+      <div class="card">
+        <h3>🧩 Modular</h3>
+        <p>Enable only what you need. byteOS components are fully modular.</p>
+      </div>
+      <div class="card">
+        <h3>🖥️ Custom UI</h3>
+        <p>A clean, modern interface inspired by classic and modern systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About byteOS</h2>
+    <p style="text-align:center; max-width:800px; margin:auto; color:var(--muted)">
+      byteOS is an experimental operating system concept focused on speed, simplicity,
+      and full user control. Inspired by classic systems and modern design, it avoids
+      unnecessary bloat while remaining powerful and extensible.
+    </p>
+
+    <div class="terminal" id="terminal">
+      booting byteOS v0.1-alpha...
+    </div>
+  </section>
+
+  <section id="download" class="download">
+    <h2>Get byteOS</h2>
+    <p style="color:var(--muted)">Currently in Alpha stage. For testing only.</p>
+    <div class="meta">
+  Build notes:
+  <a href="changelog/prealpha-0.0.6.html" style="color:#4da3ff">
+    View changelog
+  </a>
+</div>
+    <button onclick="fakeDownload()">Download</button>
+  </section>
+
+  <footer>
+    © 2026 byteOS Project • Alpha Software
+  </footer>
+
+  <script>
+    const terminal = document.getElementById("terminal");
+    const lines = [
+      "[ OK ] Kernel loaded",
+      "[ OK ] Memory manager initialized",
+      "[ OK ] Device manager ready",
+      "[ OK ] byteUI started",
+      "Welcome to byteOS"
+    ];
+
+    let i = 0;
+    setInterval(() => {
+      if (i < lines.length) {
+        terminal.innerHTML += "\n" + lines[i];
+        i++;
+      }
+    }, 900);
+
+    function fakeDownload() {
+      alert("byteOS Alpha is not publicly available yet.\nThis is a demo site.");
+    }
+  </script>
+
+</body>
+</html>

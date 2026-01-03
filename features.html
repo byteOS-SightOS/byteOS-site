@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>byteOS – Features</title>
+  <link rel="stylesheet" href="index.html" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #0b0f1a, #06080f);
+      color: #e6e9f0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      background: rgba(18,24,43,0.8);
+      position: sticky;
+      top: 0;
+    }
+    nav a { color: #e6e9f0; text-decoration: none; }
+    nav a:hover { color: #4da3ff; }
+    section { max-width: 1000px; margin: auto; padding: 60px 20px; }
+    h1 { text-align: center; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #12182b;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    .card h3 { color: #4da3ff; }
+    footer { text-align:center; padding:30px; color:#9aa3b2; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="features.html">Features</a>
+  <a href="about.html">About</a>
+  <a href="download.html">Download</a>
+</nav>
+
+<section>
+  <h1>byteOS Features</h1>
+  <div class="grid">
+    <div class="card"><h3>Kernel</h3><p>Optimized micro-kernel for speed and stability.</p></div>
+    <div class="card"><h3>Memory</h3><p>Low-latency memory manager with smart paging.</p></div>
+    <div class="card"><h3>File System</h3><p>Simple, fast, and corruption-resistant design.</p></div>
+    <div class="card"><h3>UI Stack</h3><p>byteUI compositor with hardware acceleration.</p></div>
+    <div class="card"><h3>CLI</h3><p>Powerful terminal for scripting and automation.</p></div>
+    <div class="card"><h3>Modules</h3><p>Enable or disable system components on demand.</p></div>
+  </div>
+</section>
+
+<footer>© 2026 byteOS Project</footer>
+
+</body>
+</html>
