@@ -289,30 +289,37 @@
   function closeConfirm(){ document.getElementById('confirmModal').style.display='none'; }
 </script>
 <script>
-  // Set Alpha target date (adjust anytime)
-const alphaDate = new Date("2026-01-31T23:59:59Z");
+  const alphaDate = new Date("2026-01-31T23:59:59Z");
 
   const countdownEl = document.getElementById("alphaCountdown");
+  const badgeEl = document.querySelector(".stage-badge");
+  const textEl = document.querySelector(".alpha-text strong");
 
-  function updateCountdown() {
+  function updateBanner() {
     const now = new Date();
     const diff = alphaDate - now;
 
+    // AFTER Alpha
     if (diff <= 0) {
-      countdownEl.textContent = "Alpha is live 🚀";
+      badgeEl.textContent = "CANARY";
+      badgeEl.classList.remove("dev", "stable");
+      badgeEl.classList.add("canary");
+
+      textEl.textContent = "byteOS Alpha is live";
+      countdownEl.textContent = "Alpha phase (v0.1.x) 🧪";
       return;
     }
 
+    // BEFORE Alpha
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
 
     countdownEl.textContent = `Alpha in ${days}d ${hours}h`;
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 60_000);
+  updateBanner();
+  setInterval(updateBanner, 60_000);
 </script>
-
 <footer>
   © 2026–2034 byteOS Project • Development Roadmap
 </footer>
