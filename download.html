@@ -125,9 +125,57 @@
   color: #4da3ff;
   white-space: nowrap;
 }
+    /* Current stage highlight */
+[data-stage].current {
+  outline: 2px solid #4da3ff;
+  box-shadow: 0 0 25px rgba(77,163,255,0.35);
+}
+
+/* Sidebar current */
+.sidebar a.current {
+  color: #4da3ff;
+  font-weight: 800;
+}
+
+/* Future stages dimmed */
+[data-stage].future {
+  opacity: 0.55;
+}
+
+/* Past stages muted */
+[data-stage].past {
+  opacity: 0.75;
+}
   </style>
 </head>
 <body>
+<script>
+  const CURRENT_STAGE = "alpha";
+</script>
+<script>
+  const order = [
+    "pre-alpha",
+    "alpha",
+    "beta",
+    "rc",
+    "pre-rtm",
+    "rtm",
+    "gc"
+  ];
+
+  const currentIndex = order.indexOf(CURRENT_STAGE);
+
+  document.querySelectorAll("[data-stage]").forEach(el => {
+    const stage = el.getAttribute("data-stage");
+    const index = order.indexOf(stage);
+
+    el.classList.remove("past", "current", "future");
+
+    if (index < currentIndex) el.classList.add("past");
+    else if (index === currentIndex) el.classList.add("current");
+    else el.classList.add("future");
+  });
+</script>
 
 <nav>
   <a href="index.html">Home</a>
