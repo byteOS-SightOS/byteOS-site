@@ -142,7 +142,7 @@
 
   <div class="warning">
     <strong>⚠ WARNING</strong><br>
-    byteOS is currently in <b>Pre-Alpha</b>. These builds are unstable, incomplete,
+    byteOS is currently in <b>Alpha</b>. These builds are unstable, incomplete,
     and intended for testing and development only.
   </div>
 <div class="alpha-banner">
@@ -150,7 +150,7 @@
     <span class="stage-badge canary">CANARY</span>
 
     <div class="alpha-text">
-      <strong>byteOS is transitioning to Alpha</strong>
+      <strong>byteOS has transitioned to Alpha</strong>
       <span class="sub">
         Pre-Alpha → Alpha (v0.1.x)
       </span>
@@ -269,7 +269,7 @@
 <div id="confirmModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;z-index:1000;">
   <div style="background:#12182b;padding:30px;border-radius:16px;max-width:420px;box-shadow:0 20px 40px rgba(0,0,0,0.6);">
     <h3>Flash firmware to micro:bit v2</h3>
-    <p style="color:#9aa3b2">You are about to download a <b>Pre-Alpha</b> firmware build for BBC micro:bit v2.</p>
+    <p style="color:#9aa3b2">You are about to download a <b>Alpha</b> firmware build for BBC micro:bit v2.</p>
     <ul style="color:#9aa3b2">
       <li>Experimental and unstable</li>
       <li>May require re-flashing</li>
@@ -289,36 +289,8 @@
   function closeConfirm(){ document.getElementById('confirmModal').style.display='none'; }
 </script>
 <script>
-const alphaDate = new Date("2026-01-04T16:59:59Z");
-
   const countdownEl = document.getElementById("alphaCountdown");
-  const badgeEl = document.querySelector(".stage-badge");
-  const textEl = document.querySelector(".alpha-text strong");
-
-  function updateBanner() {
-    const now = new Date();
-    const diff = alphaDate - now;
-
-    // AFTER Alpha
-    if (diff <= 0) {
-      badgeEl.textContent = "CANARY";
-      badgeEl.classList.remove("dev", "stable");
-      badgeEl.classList.add("canary");
-
-      textEl.textContent = "byteOS Alpha is live";
-      countdownEl.textContent = "Alpha phase (v0.1.x) 🧪";
-      return;
-    }
-
-    // BEFORE Alpha
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-
-    countdownEl.textContent = `Alpha in ${days}d ${hours}h`;
-  }
-
-  updateBanner();
-  setInterval(updateBanner, 60_000);
+  countdownEl.textContent = "Alpha released • v0.1.0 🧪";
 </script>
 <footer>
   © 2026–2034 byteOS Project • Development Roadmap
