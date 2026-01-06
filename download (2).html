@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>byteOS – Downloads</title>
+
+<style>
+/* ===== YOUR ORIGINAL CSS (PRESERVED) ===== */
+.changelog-list{margin-top:15px;font-size:.95rem}
+.changelog-list a{margin-right:15px;color:#4da3ff;text-decoration:none}
+.changelog-list .disabled{color:#9aa3b2;opacity:.5;pointer-events:none}
+.channel{display:inline-block;padding:4px 12px;border-radius:999px;font-size:.85rem;font-weight:600;margin-left:10px}
+.channel.canary{background:#ff9800;color:#000}
+.channel.dev{background:#4da3ff;color:#000}
+.channel.stable{background:#4caf50;color:#000}
+body{margin:0;font-family:"Segoe UI",Tahoma,sans-serif;background:linear-gradient(135deg,#0b0f1a,#06080f);color:#e6e9f0}
+nav{display:flex;justify-content:center;gap:25px;padding:15px;background:rgba(18,24,43,.85);position:sticky;top:0}
+nav a{color:#e6e9f0;text-decoration:none}
+nav a:hover{color:#4da3ff}
+section{max-width:1000px;margin:auto;padding:60px 20px}
+h1,h2{text-align:center}
+p{color:#9aa3b2}
+.warning{background:#2b1212;border-left:4px solid #ff4d4d;padding:20px;border-radius:10px;margin:30px 0}
+.legend{display:flex;justify-content:center;gap:20px;margin-top:15px;font-size:.9rem;color:#9aa3b2}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot.canary{background:#ff4da6}
+.dot.dev{background:#ff9f1a}
+.dot.stable{background:#2ecc71}
+.builds{display:grid;gap:20px;margin-top:40px}
+.build{background:#12182b;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.4);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;border-left:6px solid transparent}
+.build.disabled{opacity:.4}
+.build.canary{border-left-color:#ff4da6}
+.build.dev{border-left-color:#ff9f1a}
+.build.stable{border-left-color:#2ecc71}
+.build.current{outline:2px solid #4da3ff;box-shadow:0 0 25px rgba(77,163,255,.45)}
+.build h3{margin:0 0 6px 0}
+.build small{color:#9aa3b2}
+.meta{margin-top:6px;font-size:.85rem;color:#9aa3b2}
+button{background:#4da3ff;color:#000;border:none;padding:12px 28px;border-radius:25px;cursor:pointer;font-weight:600}
+button:disabled{background:#555;cursor:not-allowed}
+footer{text-align:center;padding:30px;color:#9aa3b2}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="features.html">Features</a>
+  <a href="about.html">About</a>
+  <a href="download.html">Download</a>
+</nav>
+
+<section>
+<h1>Download byteOS</h1>
+<p style="text-align:center">Current development builds for BBC micro:bit v2</p>
+
+<div class="warning">
+<strong>⚠ WARNING</strong><br>
+byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for testing only.
+</div>
+
+<h2>Available Builds</h2>
+
+<div class="builds">
+<div class="build canary disabled" data-stage="pre-alpha">
+  <div>
+    <h3>Pre-Alpha 0.0.9</h3>
+    <small>Channel: <span class="channel canary">Canary</span> · Version range: 0.0.x</small>
+    <div class="meta">Status: End of life</div>
+    <div class="meta">Replaced by Alpha</div>
+    <div class="meta">Target: BBC micro:bit v2</div>
+    <div class="meta">
+      📝 <a href="changelog/prealpha-0.0.6.html" style="color:#4da3ff;text-decoration:none">
+      Changelog
+      </a>
+    </div>
+  </div>
+  <button disabled>Archived</button>
+</div>
+<!-- ===== CURRENT ALPHA ===== -->
+<div class="build canary current" data-stage="alpha">
+  <div>
+    <h3>Alpha 0.1.1</h3>
+    <small>Channel: <span class="channel canary">Canary</span> · Version range: 0.1.x</small>
+
+    <div class="meta">Released: Jan 2026 (GMT+7)</div>
+    <div class="meta">Target: BBC micro:bit v2</div>
+    <div class="meta">File: Intel HEX firmware</div>
+    <div class="meta">App & Kernel updates</div>
+    <div class="meta">
+      📝 <a href="planned_changes.html#alpha" style="color:#4da3ff;text-decoration:none">
+      Planned changes
+      </a>
+    </div>
+
+    <!-- AUTO BUILD INFO -->
+    <div class="meta" style="margin-top:10px;padding:10px;border-radius:8px;background:#0b0f1a">
+      📦 Size: <b id="buildSize">Calculating…</b><br>
+      🔐 SHA-256: <code id="buildHash">Calculating…</code>
+    </div>
+
+    <div class="meta">
+      📝 <a href="changelog/prealpha-0.0.6.html">Changelog</a>
+    </div>
+  </div>
+
+  <a href="byteOS-microbit-alpha-0.1.1.hex" download>
+    <button>Download .hex</button>
+  </a>
+</div>
+
+<!-- ===== DISABLED STAGES ===== -->
+<div class="build canary disabled" data-stage="beta">
+  <div>
+    <h3>Beta</h3>
+    <small>Channel: <span class="channel dev">Dev</span> · Version range: 0.5.x</small>
+    <div class="meta">Coming Q3 2026</div>
+    <div class="meta">App & Kernel optimization phase</div>
+    <div class="meta">
+      📝 <a href="planned_changes.html#beta" style="color:#4da3ff;text-decoration:none">
+      Planned changes
+      </a>
+    </div>
+  </div>
+  <button disabled>Unavailable</button>
+</div>
+
+<div class="build dev disabled" data-stage="rc">
+  <div>
+    <h3>RC</h3>
+    <small>Channel: <span class="channel dev">Dev</span> · Version range: 0.9.x</small>
+    <div class="meta">Coming Q2 2027</div>
+    <div class="meta">App stabilization phase</div>
+    <div class="meta">
+      📝 <a href="planned_changes.html#rc" style="color:#4da3ff;text-decoration:none">
+      Planned changes
+      </a>
+    </div>
+  </div>
+  <button disabled>Unavailable</button>
+</div>
+
+  <div class="build dev disabled" data-stage="pre-rtm">
+  <div>
+    <h3>Pre-RTM</h3>
+    <small>Channel: <span class="channel dev">Dev</span> · Version range: 0.9.9x</small>
+    <div class="meta">Expected: Q3 2028</div>
+    <div class="meta">Stabilization phase</div>
+    <div class="meta">
+      📝 <a href="planned_changes.html#pre-rtm" style="color:#4da3ff;text-decoration:none">
+      Planned changes
+      </a>
+    </div>
+  </div>
+  <button disabled>Unavailable</button>
+</div>
+
+<div class="build stable disabled"data-stage="rtm">
+  <div>
+    <h3>RTM</h3>
+    <small>Channel: <span class="channel stable">Stable</span> · Version range: 1.0.0</small>
+    <div class="meta">Coming Q4 2028</div>
+    <div class="meta">Manufacturer release</div>
+    <div class="meta">
+      📝 <a href="planned_changes.html#rtm" style="color:#4da3ff;text-decoration:none">
+      Planned changes
+      </a>
+    </div>
+  </div>
+  <button disabled>Unavailable</button>
+</div>
+  
+<div class="build stable disabled" data-stage="gc">
+  <div>
+    <h3>GC (General Consumption)</h3>
+    <small>Channel: <span class="channel stable">Stable</span> · Version range: 1.x</small>
+    <div class="meta">Expected: Q4 2028</div>
+    <div class="meta">Long-term consumer release</div>
+    <div class="meta">
+      📝 <a href="planned_changes.html#gc" style="color:#4da3ff;text-decoration:none">
+      Planned changes
+      </a>
+    </div>
+  </div>
+  <button disabled>Unavailable</button>
+</div>
+
+</div>
+</section>
+<div class="meta">
+  📦 <a href="archived.html">Archived builds</a>
+</div>
+
+<footer>
+© 2026–2034 byteOS Project
+</footer>
+
+<!-- ===== AUTO SIZE + HASH SCRIPT ===== -->
+<script>
+(async () => {
+  const FILE = "byteOS-microbit-alpha-0.1.1.hex";
+  try {
+    const r = await fetch(FILE);
+    const b = await r.arrayBuffer();
+
+    document.getElementById("buildSize").textContent =
+      (b.byteLength / 1024).toFixed(1) + " KB";
+
+    const h = await crypto.subtle.digest("SHA-256", b);
+    const hex = [...new Uint8Array(h)]
+      .map(x => x.toString(16).padStart(2,"0")).join("");
+
+    document.getElementById("buildHash").textContent = hex;
+  } catch {
+    document.getElementById("buildSize").textContent = "Unavailable";
+    document.getElementById("buildHash").textContent = "Unavailable";
+  }
+})();
+</script>
+<script>
+  const CURRENT_STAGE = "alpha"; // change when moving stages
+
+  const STAGE_ORDER = [
+    "pre-alpha",
+    "alpha",
+    "beta",
+    "rc",
+    "pre-rtm",
+    "rtm",
+    "gc"
+  ];
+
+  const currentIndex = STAGE_ORDER.indexOf(CURRENT_STAGE);
+
+  document.querySelectorAll(".build[data-stage]").forEach(build => {
+    const stage = build.dataset.stage;
+    const index = STAGE_ORDER.indexOf(stage);
+
+    build.classList.remove("past", "current", "future", "disabled");
+
+    if (index < currentIndex) {
+      build.classList.add("past", "disabled");
+      build.querySelector("button")?.setAttribute("disabled", true);
+      build.querySelector("button").textContent = "Archived";
+    } 
+    else if (index === currentIndex) {
+      build.classList.add("current");
+    } 
+    else {
+      build.classList.add("future", "disabled");
+      build.querySelector("button")?.setAttribute("disabled", true);
+      build.querySelector("button").textContent = "Unavailable";
+    }
+  });
+</script>
+
+</body>
+</html>
