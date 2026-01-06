@@ -148,7 +148,6 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
     </div>
 
 <div class="meta" id="buildInfo">
-  📊 Size: <span id="buildSize">Calculating…</span><br>
 <div class="meta checksum-box">
   🔐 SHA-256:
   <code id="shaValue">4d61128ad9.....</code>
@@ -285,9 +284,6 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
     const res = await fetch(FILE_URL);
     const buf = await res.arrayBuffer();
 
-    // Size
-    const sizeKB = (buf.byteLength / 1024).toFixed(1);
-    sizeEl.textContent = sizeKB + " KB";
 
     // SHA-256
     const hashBuffer = await crypto.subtle.digest("SHA-256", buf);
@@ -375,17 +371,17 @@ function copyHash() {
   });
 </script>
 <script>
-  const buildDateEl = document.getElementById("buildDate");
-  if (buildDateEl) {
-    buildDateEl.textContent = new Date().toLocaleString("en-GB", {
-      timeZone: "Asia/Bangkok",
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit"
-    });
-  }
+//  const buildDateEl = document.getElementById("buildDate");
+//  if (buildDateEl) {
+//    buildDateEl.textContent = new Date().toLocaleString("en-GB", {
+//      timeZone: "Asia/Bangkok",
+//      year: "numeric",
+//      month: "short",
+//      day: "2-digit",
+//      hour: "2-digit",
+//      minute: "2-digit"
+//    });
+//  }
 </script>
 
 </body>
