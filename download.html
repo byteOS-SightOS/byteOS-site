@@ -368,6 +368,22 @@ function copyHash() {
     }
   });
 </script>
+  <script>
+function secureDownload() {
+  const password = prompt("Enter download password:");
+
+  if (password === "firefly@360") {
+    const link = document.createElement("a");
+    link.href = "byteOS-0.1.0-microbit-v2.hex";
+    link.download = "byteOS-0.1.0-microbit-v2.hex";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } else if (password !== null) {
+    alert("Incorrect password.");
+  }
+}
+</script>
 <script>
 //  const buildDateEl = document.getElementById("buildDate");
 //  if (buildDateEl) {
