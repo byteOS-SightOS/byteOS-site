@@ -151,7 +151,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
   📊 Size: <span id="buildSize">Calculating…</span><br>
 <div class="meta checksum-box">
   🔐 SHA-256:
-  <code id="shaValue">4d61128ad96670c7903f2c2cb3a2379a460f599caab51fb287ac7dacfa940c35</code>
+  <code id="shaValue">4d61128ad9.....</code>
   <button class="copy-btn" onclick="copyHash()">Copy</button>
 </div>
 <div class="meta">
@@ -332,7 +332,7 @@ async function verifyChecksum() {
 
 <script>
 function copyHash() {
-  const text = document.getElementById("shaValue").textContent;
+  const text = document.getElementById("expectedHash").textContent;
   navigator.clipboard.writeText(text);
   alert("SHA-256 copied to clipboard");
 }
