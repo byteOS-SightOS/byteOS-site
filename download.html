@@ -64,7 +64,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
 <h2>Available Builds</h2>
 
 <div class="builds">
-<div class="build canary disabled">
+<div class="build canary disabled" data-stage="pre-alpha">
   <div>
     <h3>Pre-Alpha 0.0.9</h3>
     <small>Channel: <span class="channel canary">Canary</span> · Version range: 0.0.x</small>
@@ -80,7 +80,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
   <button disabled>Archived</button>
 </div>
 <!-- ===== CURRENT ALPHA ===== -->
-<div class="build canary current">
+<div class="build canary current" data-stage="alpha">
   <div>
     <h3>Alpha 0.1.1</h3>
     <small>Channel: <span class="channel canary">Canary</span> · Version range: 0.1.x</small>
@@ -112,7 +112,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
 </div>
 
 <!-- ===== DISABLED STAGES ===== -->
-<div class="build canary disabled">
+<div class="build canary disabled" data-stage="beta">
   <div>
     <h3>Beta</h3>
     <small>Channel: <span class="channel dev">Dev</span> · Version range: 0.5.x</small>
@@ -127,7 +127,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
   <button disabled>Unavailable</button>
 </div>
 
-<div class="build dev disabled">
+<div class="build dev disabled" data-stage="rc">
   <div>
     <h3>RC</h3>
     <small>Channel: <span class="channel dev">Dev</span> · Version range: 0.9.x</small>
@@ -142,7 +142,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
   <button disabled>Unavailable</button>
 </div>
 
-  <div class="build dev disabled">
+  <div class="build dev disabled" data-stage="pre-rtm">
   <div>
     <h3>Pre-RTM</h3>
     <small>Channel: <span class="channel dev">Dev</span> · Version range: 0.9.9x</small>
@@ -157,7 +157,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
   <button disabled>Unavailable</button>
 </div>
 
-<div class="build stable disabled">
+<div class="build stable disabled"data-stage="rtm">
   <div>
     <h3>RTM</h3>
     <small>Channel: <span class="channel stable">Stable</span> · Version range: 1.0.0</small>
@@ -172,7 +172,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
   <button disabled>Unavailable</button>
 </div>
   
-<div class="build stable disabled">
+<div class="build stable disabled" data-stage="gc">
   <div>
     <h3>GC (General Consumption)</h3>
     <small>Channel: <span class="channel stable">Stable</span> · Version range: 1.x</small>
@@ -189,6 +189,9 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
 
 </div>
 </section>
+<div class="meta">
+  📦 <a href="archived.html">Archived builds</a>
+</div>
 
 <footer>
 © 2026–2034 byteOS Project
@@ -215,6 +218,42 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
     document.getElementById("buildHash").textContent = "Unavailable";
   }
 })();
+</script>
+<script>
+  const CURRENT_STAGE = "alpha"; // change when moving stages
+
+  const STAGE_ORDER = [
+    "pre-alpha",
+    "alpha",
+    "beta",
+    "rc",
+    "pre-rtm",
+    "rtm",
+    "gc"
+  ];
+
+  const currentIndex = STAGE_ORDER.indexOf(CURRENT_STAGE);
+
+  document.querySelectorAll(".build[data-stage]").forEach(build => {
+    const stage = build.dataset.stage;
+    const index = STAGE_ORDER.indexOf(stage);
+
+    build.classList.remove("past", "current", "future", "disabled");
+
+    if (index < currentIndex) {
+      build.classList.add("past", "disabled");
+      build.querySelector("button")?.setAttribute("disabled", true);
+      build.querySelector("button").textContent = "Archived";
+    } 
+    else if (index === currentIndex) {
+      build.classList.add("current");
+    } 
+    else {
+      build.classList.add("future", "disabled");
+      build.querySelector("button")?.setAttribute("disabled", true);
+      build.querySelector("button").textContent = "Unavailable";
+    }
+  });
 </script>
 
 </body>
