@@ -181,7 +181,7 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
     </div>
   </div>
 
-<button onclick="secureDownload()">Download</button>
+<button onclick="openPasswordModal()">Download .hex</button>
 </div>
 
 <!-- ===== DISABLED STAGES ===== -->
@@ -263,6 +263,63 @@ byteOS is currently in <b>Alpha (Canary)</b>. These builds are unstable and for 
 </div>
 </section>
 
+<!-- Password Gate Modal -->
+<div id="passwordModal" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+">
+  <div style="
+    background:#12182b;
+    padding:28px;
+    border-radius:16px;
+    max-width:420px;
+    width:100%;
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+  ">
+    <h3>Restricted Download</h3>
+    <p style="color:#9aa3b2">
+      This build is protected. Enter the download password.
+    </p>
+
+    <input
+      id="passwordInput"
+      type="password"
+      placeholder="Password"
+      style="
+        width:100%;
+        padding:12px;
+        border-radius:10px;
+        border:none;
+        margin-top:10px;
+        background:#0b0f1a;
+        color:#e6e9f0;
+      "
+    />
+
+    <div id="passwordError" style="
+      margin-top:10px;
+      color:#ff6b6b;
+      display:none;
+      font-size:0.9rem;
+    ">
+      Incorrect password
+    </div>
+
+    <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:20px;">
+      <button onclick="closePasswordModal()" style="background:#555;color:#fff">
+        Cancel
+      </button>
+      <button onclick="checkPassword()">
+        Unlock
+      </button>
+    </div>
+  </div>
+</div>
 
 <footer>
 © 2026–2034 byteOS Project • <div class="meta">
@@ -372,10 +429,8 @@ function copyHash() {
 function secureDownload() {
   const password = prompt("Enter download password:");
 
-  if (password === "firefly@360") {
+  if (password === "##########") {
     const link = document.createElement("a");
-    link.href = "byteOS-microbit-alpha-0.1.1.hex";
-    link.download = "byteOS-microbit-alpha-0.1.1.hex";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -396,6 +451,52 @@ function secureDownload() {
 //      minute: "2-digit"
 //    });
 //  }
+</script>
+<script>
+  // ===== Password protection =====
+
+  let attemptsLeft = 3;
+
+  // Obfuscated password: "##############"
+  const encoded = [102,105,114,101,102,108,121,64,51,54,48]
+    .map(n => n ^ 42);
+
+  function decodePassword() {
+    return encoded.map(n => String.fromCharCode(n ^ 42)).join("");
+  }
+
+  function openPasswordModal() {
+    document.getElementById("passwordModal").style.display = "flex";
+    document.getElementById("passwordInput").value = "";
+    document.getElementById("passwordError").style.display = "none";
+  }
+
+  function closePasswordModal() {
+    document.getElementById("passwordModal").style.display = "none";
+  }
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const errorEl = document.getElementById("passwordError");
+
+    if (attemptsLeft <= 0) {
+      errorEl.textContent = "Too many attempts. Download locked.";
+      errorEl.style.display = "block";
+      return;
+    }
+
+    if (input === decodePassword()) {
+      closePasswordModal();
+
+      // REAL DOWNLOAD
+      window.location.href = "byteOS-microbit-prealpha-0.0.9.hex";
+    } else {
+      attemptsLeft--;
+      errorEl.textContent =
+        "Incorrect password (" + attemptsLeft + " attempts left)";
+      errorEl.style.display = "block";
+    }
+  }
 </script>
 
 </body>
