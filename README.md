@@ -1,3 +1,3 @@
 # byteOS-site
-byteOS's website &amp; repository
+byteOS's website
 ## Download in Releases
