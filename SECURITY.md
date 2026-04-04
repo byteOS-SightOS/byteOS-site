@@ -16,5 +16,5 @@ Versions of the project are currently being supported with security updates.
 Please report it at Issues, with the tag Vulnerability.
 It will be reviewed and fixed in around 3-6 updates.
 It will also recieve the following tags, according to the tags' label:
-Fixed, Not fixed, Critical, Medium, Not needed yet.
+fixed, notfixed, critical, help wanted, wontfix.
 Please provide the model, version of byteOS and how to produce it.
